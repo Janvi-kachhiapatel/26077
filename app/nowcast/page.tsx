@@ -2,7 +2,7 @@
 
 import { useMemo, useState } from 'react'
 import { CloudLightning, Info, Layers3, MapPin, Play, Waves, Wind } from 'lucide-react'
-import { SIM_TIMESTAMP, confidenceLabel, driversFor, hazardAt, overallRisk, regions } from '@/lib/engine'
+import { confidenceLabel, driversFor, hazardAt, overallRisk, regions, simTime } from '@/lib/engine'
 import { useStore } from '@/lib/store'
 
 const horizons = [0, 1, 2, 3, 4, 5, 6]
@@ -36,7 +36,7 @@ export default function NowcastPage() {
       <div className="workspace">
         <div className="workspace-heading">
           <div>
-            <p className="eyebrow">{region.eventLabel} · {SIM_TIMESTAMP}</p>
+            <p className="eyebrow">{region.eventLabel} · {simTime(regionId)}</p>
             <h1>Nowcast map · 0–6 h</h1>
             <p className="heading-caption">
               {region.name} <span>·</span> schematic replay — geometry illustrative, values from the engine

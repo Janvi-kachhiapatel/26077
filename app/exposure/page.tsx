@@ -1,7 +1,7 @@
 'use client'
 
 import { AlertTriangle, Building2, GraduationCap, HeartPulse, Info, ShieldCheck, Users } from 'lucide-react'
-import { SIM_TIMESTAMP, fmtPop, hazardAt, overallRisk, regions } from '@/lib/engine'
+import { fmtPop, hazardAt, overallRisk, regions, simTime } from '@/lib/engine'
 import { useStore } from '@/lib/store'
 
 export default function ExposurePage() {
@@ -16,7 +16,7 @@ export default function ExposurePage() {
       <div className="workspace">
         <div className="workspace-heading">
           <div>
-            <p className="eyebrow">{region.eventLabel} · {SIM_TIMESTAMP}</p>
+            <p className="eyebrow">{region.eventLabel} · {simTime(regionId)}</p>
             <h1>Exposure &amp; impact</h1>
             <p className="heading-caption">
               What is inside the alert polygon — the difference between a forecast and a decision

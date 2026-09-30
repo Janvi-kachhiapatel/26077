@@ -17,7 +17,9 @@ export interface Region {
   subtitle: string
   coords: string
   mode: Mode
-  /** Local event label, e.g. "Bengaluru storm replay 30 Aug 2022" */
+  /** Simulated wall-clock of the replayed event — per region, not global. */
+  simTime: string
+  /** Short event label shown in headers. */
   eventLabel: string
   eventDate: string
   catchments: Catchment[]

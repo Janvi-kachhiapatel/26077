@@ -11,8 +11,16 @@ import type {
 // Engine configuration
 // ─────────────────────────────────────────────────────────────────────────────
 
-export const SIM_TIMESTAMP = '30 Aug 2022 · 14:42 IST' // replayed event time
 export const BACKTEST_VERSION = 'vajra-engine v0.9.2 · backtest 2026-09-12'
+
+/**
+ * Per-region simulated wall-clock. Each region replays its own event, so the
+ * clock (and every derived timestamp) must come from the region — never a
+ * single global constant.
+ */
+export function simTime(regionId: RegionId): string {
+  return regions[regionId].simTime
+}
 
 export const regions: Record<RegionId, Region> = {
   blr: {
@@ -21,6 +29,7 @@ export const regions: Record<RegionId, Region> = {
     subtitle: 'Urban flash-flood basin · Karnataka',
     coords: '12.97°N, 77.59°E',
     mode: 'replay',
+    simTime: '30 Aug 2022 · 14:42 IST',
     eventLabel: 'Storm replay · 30 Aug 2022',
     eventDate: '2022-08-30',
     catchments: [
@@ -63,6 +72,7 @@ export const regions: Record<RegionId, Region> = {
     subtitle: 'Terrain-driven cloudburst & landslide flash flood · Western Ghats',
     coords: '11.68°N, 76.13°E',
     mode: 'replay',
+    simTime: '16 Aug 2024 · 15:10 IST',
     eventLabel: 'Cloudburst replay · 16 Aug 2024 (Wayanad)',
     eventDate: '2024-08-16',
     catchments: [

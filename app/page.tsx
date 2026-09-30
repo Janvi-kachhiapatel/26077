@@ -5,7 +5,7 @@ import Link from 'next/link'
 import {
   AlertTriangle, ArrowRight, Bell, CheckCircle2, CloudLightning, Droplets, Info, MapPin, Waves, Wind,
 } from 'lucide-react'
-import { SIM_TIMESTAMP, driversFor, fmtPop, hazardAt, overallRisk, regions } from '@/lib/engine'
+import { driversFor, fmtPop, hazardAt, overallRisk, regions, simTime } from '@/lib/engine'
 import { useStore } from '@/lib/store'
 
 export default function OverviewPage() {
@@ -18,7 +18,7 @@ export default function OverviewPage() {
       <div className="workspace">
         <div className="workspace-heading">
           <div>
-            <p className="eyebrow">{region.subtitle} · {SIM_TIMESTAMP}</p>
+            <p className="eyebrow">{region.subtitle} · {simTime(regionId)}</p>
             <h1>Situation overview</h1>
             <p className="heading-caption">
               {region.name} <span>·</span> {region.coords} <span>·</span> {region.mode.toUpperCase()} MODE

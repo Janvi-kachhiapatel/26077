@@ -2,7 +2,7 @@
 
 import { useState } from 'react'
 import { CloudLightning, Droplets, Info, MapPin, Waves } from 'lucide-react'
-import { SIM_TIMESTAMP, driversFor, fmtPop, hazardAt, overallRisk, recommendedAction, regions } from '@/lib/engine'
+import { driversFor, fmtPop, hazardAt, overallRisk, recommendedAction, regions, simTime } from '@/lib/engine'
 import { useStore } from '@/lib/store'
 
 const horizons = [0, 1, 2, 3, 4, 5, 6]
@@ -19,7 +19,7 @@ export default function LocationPage() {
       <div className="workspace">
         <div className="workspace-heading">
           <div>
-            <p className="eyebrow">{region.eventLabel} · {SIM_TIMESTAMP}</p>
+            <p className="eyebrow">{region.eventLabel} · {simTime(regionId)}</p>
             <h1>Location intelligence</h1>
             <p className="heading-caption">
               {region.name} <span>·</span> {c.kind} <span>·</span> calibrated per hazard, band = P10–P90
