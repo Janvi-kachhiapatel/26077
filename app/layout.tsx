@@ -28,8 +28,10 @@ export const viewport: Viewport = {
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="en">
-      <body className="antialiased">
+    <html lang="en" suppressHydrationWarning>
+      {/* suppressHydrationWarning: browser extensions (e.g. Bing/Copilot) inject
+          attributes like bis_skin_checked before React hydrates; ignore that noise. */}
+      <body className="antialiased" suppressHydrationWarning>
         <StoreProvider>
           <div className="mobile-menu-slot" />
           <Sidebar />
