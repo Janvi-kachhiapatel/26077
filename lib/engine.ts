@@ -11,7 +11,7 @@ import type {
 // Engine configuration
 // ─────────────────────────────────────────────────────────────────────────────
 
-export const BACKTEST_VERSION = 'skysentinel-engine v0.9.2 · backtest 2026-09-12'
+export const REPLAY_VERSION = 'skysentinel-replay v0.9.2 · illustrative event script 2026-09-12'
 
 /**
  * Per-region simulated wall-clock. Each region replays its own event, so the
@@ -209,9 +209,10 @@ export function recommendedAction(regionId: RegionId, catchmentId: string): stri
 }
 
 // ─────────────────────────────────────────────────────────────────────────────
-// Verification — honest numbers, always shown next to baselines.
-// These are the prototype's backtest snapshot; the methodology (event-split,
-// hazard-defined events) is what a judge should probe.
+// Verification — ILLUSTRATIVE REPLAY METRICS, always shown next to baselines.
+// NOT measured model performance: no trained model exists yet. The methodology
+// (event-split, hazard-defined events) is the probeable part. The trained
+// model's reproducible eval pipeline replaces these numbers in Phase 3.
 // ─────────────────────────────────────────────────────────────────────────────
 
 export const skillByLead: Record<'0-2h' | '2-4h' | '4-6h', SkillRow[]> = {

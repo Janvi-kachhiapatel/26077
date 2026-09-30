@@ -146,13 +146,13 @@ export default function OverviewPage() {
           <div className="section-heading">
             <div>
               <p className="eyebrow">Verification pack</p>
-              <h2>Model skill against simple baselines</h2>
+              <h2>Illustrative skill vs simple baselines</h2>
             </div>
             <Link className="outline-button" href="/verification">Full verification <ArrowRight size={14} /></Link>
           </div>
           <p className="method-note">
-            <CheckCircle2 size={13} /> Event-split backtest over 21 events — CSI 0.58 vs 0.41 persistence at 0–2 h lead.
-            FAR 0.24. Brier 0.11. Numbers degrade with lead time — by design, we show it.
+            <CheckCircle2 size={13} /> Illustrative replay metrics over a 21-event script — CSI 0.58 vs 0.41 persistence at 0–2 h lead.
+            FAR 0.24. Brier 0.11. Not measured model performance — the methodology is real, the numbers are replay targets.
           </p>
           <div className="evidence-foot">
             <span><strong>Events</strong> 21 (2018–2024)</span>

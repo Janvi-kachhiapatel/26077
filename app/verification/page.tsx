@@ -15,10 +15,10 @@ export default function VerificationPage() {
       <div className="workspace">
         <div className="workspace-heading">
           <div>
-            <p className="eyebrow">Backtest snapshot · run {verificationMeta.lastRun}</p>
+            <p className="eyebrow">Illustrative replay metrics · run {verificationMeta.lastRun}</p>
             <h1>Verification &amp; proof</h1>
             <p className="heading-caption">
-              Real backtest numbers from the replayed event set — shown against baselines, degrading with lead time
+              Illustrative numbers from the replayed event script — not measured model performance. The methodology (event split, hazard definition, baselines) is the probeable part.
             </p>
           </div>
           <span className="provenance-badge"><CheckCircle2 size={13} /> Event-split · no random-row leakage</span>
@@ -87,7 +87,8 @@ export default function VerificationPage() {
             <div><span>Baselines</span><strong>persistence · optical-flow extrapolation</strong></div>
           </div>
           <p className="method-note">
-            <Info size={13} /> Known limits: 21 events is a small sample; the Ghats subset (7 events) is smaller still.
+            <Info size={13} /> These figures are illustrative replay targets, not measured model performance — a trained model with a reproducible eval pipeline replaces them in the next build phase.
+            Known limits: 21 events is a small sample; the Ghats subset (7 events) is smaller still.
             Numbers are reported modestly and will move as the event register grows. We publish what we have rather
             than what a pitch deck would want.
           </p>

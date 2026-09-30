@@ -71,7 +71,7 @@ export default function DataHealthPage() {
           </div>
           <div className="cap-grid">
             <div><span>Timestamp</span><strong>{simTime(regionId)}</strong></div>
-            <div><span>Engine version</span><strong>skysentinel-engine v0.9.2</strong></div>
+            <div><span>Engine version</span><strong>skysentinel-replay v0.9.2</strong></div>
             <div><span>Region</span><strong>{region.name}</strong></div>
             <div><span>Mode</span><strong>{region.mode.toUpperCase()} / simulated</strong></div>
           </div>

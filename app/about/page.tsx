@@ -42,7 +42,7 @@ export default function AboutPage() {
 
         <section className="panel-card">
           <div className="section-heading">
-            <div><p className="eyebrow"><BookOpen size={12} /> Model card</p><h2>skysentinel-engine v0.9.2 (simulated)</h2></div>
+            <div><p className="eyebrow"><BookOpen size={12} /> Model card</p><h2>skysentinel-replay v0.9.2 (simulated decision layer)</h2></div>
           </div>
           <div className="cap-grid">
             <div><span>Task</span><strong>0–6 h probabilistic hazard nowcasting</strong></div>

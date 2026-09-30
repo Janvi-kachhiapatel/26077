@@ -4,6 +4,16 @@
 
 > **Read this first (honesty statement).** Every number in this prototype is **simulated** from a replayed event script and labelled as such. The value here is the *decision layer*: the CAP alert chain, four-eyes approval, verification methodology, and data-health degradation — clickable end-to-end. No live model inference is connected; no real message is ever sent. Mock gateway only.
 
+## Two engines, clearly separated
+
+| | Replay engine (what runs today) | AI inference engine (the build target) |
+|---|---|---|
+| **What it is** | Deterministic TypeScript event script (`skysentinel-replay`) that replays recorded/constructed events | Multi-modal spatio-temporal model on INSAT + IMDAA/NWP + radar + lightning → multi-task storm/rain/flood heads |
+| **Purpose** | Guaranteed offline demo of the full decision chain | Real 2–6 h probabilistic risk maps with published skill |
+| **Honesty** | Every number it emits is illustrative, never claimed as model performance | Replaces replay metrics with a reproducible train/eval pipeline |
+
+The replay engine exists so the decision layer can be demonstrated end-to-end without live data. It is not the weather AI, and nothing in the UI or docs claims it is.
+
 ---
 
 ## Why this is structured the way it is
@@ -43,6 +53,7 @@ Role switcher (top bar): Forecaster, District manager, Responder, Analyst, Citiz
 - **Split:** by event and season — never random rows.
 - **Baselines:** persistence and optical-flow extrapolation. Skill is always shown *next to* them.
 - **Reported (0–2 h lead):** CSI 0.58 (persistence 0.41), POD 0.71, FAR 0.24, Brier 0.11 — degrading with lead time, shown degrading.
+- **⚠️ These are illustrative replay metrics — not measured model performance.** No trained model exists yet; the numbers demonstrate the verification methodology (event split, hazard definition, baseline comparison), not skill of a real model. A reproducible train/eval pipeline replaces them in Phase 3.
 - **Limits:** 21 events is a small sample; the Ghats subset (7) is smaller. Numbers move as the register grows.
 
 ## Data register (to verify at integration)
@@ -67,13 +78,32 @@ pnpm build        # production build
 
 ## Deploy
 
-**Vercel (recommended):** push to GitHub, import the repo at vercel.com/new — the framework preset (Next.js) is auto-detected, no env vars needed. Every push to `main` deploys.
+**Vercel (recommended):** push to GitHub, import the repo at vercel.com/new. Every push to `main` deploys.
+
+The app lives at the **repository root**, so Vercel settings should be:
+
+| Setting | Value |
+|---|---|
+| Framework Preset | **Next.js** (also pinned in `vercel.json`) |
+| Root Directory | `.` (leave as repo root — do **not** point at a subfolder) |
+| Build Command | `pnpm build` (or auto-detected) |
+| Output Directory | leave empty — **never** set `dist` or `build` for Next.js |
+
+If the deployment 404s: open **Deployments → latest → Build Logs** and confirm you see `Detected Next.js`, `Compiled successfully`, and a `Route (app)` table containing `○ /`. A successful build serving 404 almost always means wrong Root Directory or a manually-set Output Directory.
 
 Or use the deploy button:
 
 ```md
 [![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2FJanvi-kachhiapatel%2F26077)
 ```
+
+## Roadmap — from replay to real
+
+1. **Phase 1 — Deployment:** working public demo (done: repo builds clean, all 13 routes verified 200 locally; Vercel config pinned in `vercel.json`).
+2. **Phase 2 — Engine separation:** replay engine clearly labelled and isolated from the future AI inference path (done: see "Two engines").
+3. **Phase 3 — One real pipeline:** one hazard + one region — INSAT/NWP ingest → preprocessing → trained model → probability API → this dashboard; reproducible eval replaces illustrative metrics.
+4. **Phase 4 — Multi-task model:** shared spatio-temporal encoder → storm / rain / flood risk heads.
+5. **Phase 5 — Decision layer on live predictions:** uncertainty → impact → alert → human approval → CAP → verification, driven by real forecasts.
 
 ## Demo script for judges (3 minutes)
 
