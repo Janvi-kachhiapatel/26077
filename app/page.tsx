@@ -5,6 +5,7 @@ import {
   AlertTriangle,
   Bell,
   ChevronDown,
+  CheckCircle2,
   CloudLightning,
   Droplets,
   Gauge,
@@ -41,6 +42,18 @@ const alerts = [
   { time: '14:42', area: 'North Bengaluru', type: 'Thunderstorm', level: 'SEVERE', tone: 'red' },
   { time: '14:18', area: 'Whitefield corridor', type: 'Heavy rainfall', level: 'WATCH', tone: 'yellow' },
   { time: '13:55', area: 'KR Puram basin', type: 'Flash flood', level: 'ADVISORY', tone: 'blue' },
+]
+
+const verificationRows = [
+  { metric: 'CSI', vajra: '0.71', persistence: '0.48', optical: '0.57' },
+  { metric: 'POD', vajra: '0.84', persistence: '0.63', optical: '0.72' },
+  { metric: 'FAR', vajra: '0.18', persistence: '0.31', optical: '0.24' },
+]
+
+const dataSources = [
+  { name: 'GPM IMERG rainfall', age: '22 min ago', status: 'Fresh' },
+  { name: 'ERA5 atmospheric fields', age: '41 min ago', status: 'Fresh' },
+  { name: 'Bengaluru station network', age: '8 min ago', status: 'Fresh' },
 ]
 
 export default function Page() {
@@ -91,6 +104,10 @@ export default function Page() {
           <div className="forecast-strip"><div className="strip-head"><div><p className="eyebrow">Replay timeline</p><strong>Forecast window</strong></div><span className="confidence-chip"><Sparkles size={13} /> Confidence: {horizon < 4 ? 'High' : 'Moderate'}</span></div><div className="timeline">{horizons.map((h) => <button key={h} onClick={() => setHorizon(h)} className={`time-node ${horizon === h ? 'active' : ''}`}><span>{h === 0 ? 'NOW' : `+${h}H`}</span><i /></button>)}</div><input className="timeline-range" aria-label="Forecast hour" type="range" min="0" max="6" value={horizon} onChange={(e) => setHorizon(Number(e.target.value))} /><div className="timeline-caption"><span>30 Sep · 14:45</span><span>30 Sep · 20:45 IST</span></div></div>
 
           <div className="metrics-grid"><MetricCard icon={<CloudLightning />} label="Thunderstorm risk" value={`${forecast.storm}%`} status="SEVERE" tone="yellow" detail="Peak near east corridor" /><MetricCard icon={<Droplets />} label="Rainfall intensity" value="64.8" unit="mm/h" status="HIGH" tone="cyan" detail="90th percentile cell" /><MetricCard icon={<Waves />} label="Flash flood risk" value={`${forecast.flood}%`} status="WATCH" tone="orange" detail="Low-lying basins exposed" /><MetricCard icon={<Wind />} label="Max gust forecast" value="48" unit="km/h" status="MODERATE" tone="violet" detail="From southwest sector" /></div>
+
+          <section className="evidence-card"><div className="section-heading"><div><p className="eyebrow">Verification pack · Bengaluru event replay</p><h2>Model skill against simple baselines</h2></div><span className="provenance-badge"><CheckCircle2 size={13} /> Backtest snapshot</span></div><div className="verification-table"><div className="verification-row verification-head"><span>Metric</span><span>VajraNow</span><span>Persistence</span><span>Optical flow</span></div>{verificationRows.map((row) => <div className="verification-row" key={row.metric}><strong>{row.metric}</strong><span className="model-score">{row.vajra}</span><span>{row.persistence}</span><span>{row.optical}</span></div>)}</div><div className="evidence-foot"><span><strong>Lead time</strong> 42 min median</span><span><strong>Event set</strong> 18 Bengaluru storms</span><span><strong>Last verified</strong> 30 Sep 2026</span></div></section>
+
+          <section className="evidence-card source-card"><div className="section-heading"><div><p className="eyebrow">Operational readiness</p><h2>Data health & graceful degradation</h2></div><span className="latency-badge">Ingest → alert <strong>3m 18s</strong></span></div><div className="source-list">{dataSources.map((source) => <div className="source-row" key={source.name}><span className="source-status" /><div><strong>{source.name}</strong><p>{source.age}</p></div><span className="freshness">{source.status}</span></div>)}</div><div className="degradation-note"><Info size={14} /><span>If a feed goes stale, the alert engine keeps the last good forecast, shows its age, and disables severe-level dispatch until a duty officer reviews it.</span></div></section>
         </section>
 
         <aside className="right-panel">
