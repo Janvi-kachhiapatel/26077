@@ -2,11 +2,11 @@
 
 import { useState } from 'react'
 import { CheckCircle2, Info, ShieldCheck, XCircle } from 'lucide-react'
-import { SIM_TIMESTAMP, fmtPop, regions } from '@/lib/engine'
+import { fmtPop, regions, simTime } from '@/lib/engine'
 import { useStore } from '@/lib/store'
 
 export default function ApprovalsPage() {
-  const { alerts, approve, reject, dispatch, role, mode } = useStore()
+  const { alerts, approve, reject, dispatch, role, mode, regionId } = useStore()
   const pending = alerts.filter((a) => a.lifecycle === 'pending')
   const [reason, setReason] = useState('')
   const [flash, setFlash] = useState<string | null>(null)
@@ -29,7 +29,7 @@ export default function ApprovalsPage() {
       <div className="workspace">
         <div className="workspace-heading">
           <div>
-            <p className="eyebrow">{SIM_TIMESTAMP} · role: {role}</p>
+            <p className="eyebrow">{simTime(regionId)} · role: {role}</p>
             <h1>Approval queue</h1>
             <p className="heading-caption">
               Four-eyes rule — severe alerts need forecaster + district manager before dispatch

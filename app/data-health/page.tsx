@@ -2,7 +2,7 @@
 
 import { useState } from 'react'
 import { Activity, AlertTriangle, CheckCircle2, Info, RefreshCw } from 'lucide-react'
-import { SIM_TIMESTAMP, regions } from '@/lib/engine'
+import { regions, simTime } from '@/lib/engine'
 import { useStore } from '@/lib/store'
 
 export default function DataHealthPage() {
@@ -16,7 +16,7 @@ export default function DataHealthPage() {
       <div className="workspace">
         <div className="workspace-heading">
           <div>
-            <p className="eyebrow">{SIM_TIMESTAMP} · region: {region.name}</p>
+            <p className="eyebrow">{simTime(regionId)} · region: {region.name}</p>
             <h1>Data feed health</h1>
             <p className="heading-caption">
               Every source's latency, last update and gaps — with the degradation mode the engine falls back to
@@ -70,7 +70,7 @@ export default function DataHealthPage() {
             <div><p className="eyebrow">Provenance rule</p><h2>Every number carries its source</h2></div>
           </div>
           <div className="cap-grid">
-            <div><span>Timestamp</span><strong>{SIM_TIMESTAMP}</strong></div>
+            <div><span>Timestamp</span><strong>{simTime(regionId)}</strong></div>
             <div><span>Engine version</span><strong>vajra-engine v0.9.2</strong></div>
             <div><span>Region</span><strong>{region.name}</strong></div>
             <div><span>Mode</span><strong>{region.mode.toUpperCase()} / simulated</strong></div>

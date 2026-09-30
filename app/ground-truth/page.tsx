@@ -2,7 +2,7 @@
 
 import { useState } from 'react'
 import { Camera, CheckCircle2, MessageSquarePlus, Info } from 'lucide-react'
-import { SIM_TIMESTAMP, regions } from '@/lib/engine'
+import { regions, simTime } from '@/lib/engine'
 import { useStore } from '@/lib/store'
 
 const SEED_REPORTS = [
@@ -35,7 +35,7 @@ export default function GroundTruthPage() {
       <div className="workspace">
         <div className="workspace-heading">
           <div>
-            <p className="eyebrow">{region.eventLabel} · {SIM_TIMESTAMP}</p>
+            <p className="eyebrow">{region.eventLabel} · {simTime(regionId)}</p>
             <h1>Ground truth &amp; feedback</h1>
             <p className="heading-caption">
               Citizen and responder reports close the loop: they verify alerts and become training labels

@@ -2,7 +2,7 @@
 
 import { useState } from 'react'
 import { CheckCircle2, FlaskConical, Info, Play } from 'lucide-react'
-import { SIM_TIMESTAMP, regions } from '@/lib/engine'
+import { regions, simTime } from '@/lib/engine'
 import { useStore } from '@/lib/store'
 
 const STEPS = [
@@ -48,7 +48,7 @@ export default function DrillPage() {
       <div className="workspace">
         <div className="workspace-heading">
           <div>
-            <p className="eyebrow">{SIM_TIMESTAMP} · region: {region.name}</p>
+            <p className="eyebrow">{simTime(regionId)} · region: {region.name}</p>
             <h1>Drill / exercise mode</h1>
             <p className="heading-caption">
               Exercise the full alert chain — draft → approve → CAP → simulated delivery — without sending anything real

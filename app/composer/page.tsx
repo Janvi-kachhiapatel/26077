@@ -2,7 +2,7 @@
 
 import { useState } from 'react'
 import { Bell, CheckCircle2, Info, Languages, Send, ShieldAlert } from 'lucide-react'
-import { SIM_TIMESTAMP, fmtPop, hazardAt, overallRisk, recommendedAction, regions } from '@/lib/engine'
+import { fmtPop, hazardAt, overallRisk, recommendedAction, regions, simTime } from '@/lib/engine'
 import { useStore } from '@/lib/store'
 
 const LANGS: { id: 'en' | 'hi' | 'kn'; label: string }[] = [
@@ -50,7 +50,7 @@ export default function ComposerPage() {
       <div className="workspace">
         <div className="workspace-heading">
           <div>
-            <p className="eyebrow">{region.eventLabel} · {SIM_TIMESTAMP}</p>
+            <p className="eyebrow">{region.eventLabel} · {simTime(regionId)}</p>
             <h1>Alert composer</h1>
             <p className="heading-caption">
               Impact-based wording · cost-loss thresholds · CAP 1.2 output (mock gateway)

@@ -2,7 +2,7 @@
 
 import { useState } from 'react'
 import { CheckCircle2, History, Info, XCircle } from 'lucide-react'
-import { SIM_TIMESTAMP, fmtPop, hazardAt, regions } from '@/lib/engine'
+import { fmtPop, hazardAt, regions } from '@/lib/engine'
 import { useStore } from '@/lib/store'
 
 const REPLAY_SCRIPT = [

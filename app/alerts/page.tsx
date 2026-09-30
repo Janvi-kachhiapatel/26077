@@ -2,7 +2,7 @@
 
 import { ArrowRight, Bell, CheckCircle2, Info, Radio, XCircle } from 'lucide-react'
 import Link from 'next/link'
-import { SIM_TIMESTAMP, regions } from '@/lib/engine'
+import { regions, simTime } from '@/lib/engine'
 import { useStore } from '@/lib/store'
 
 const DELIVERY: Record<string, { sent: number; reach: number; ack: number }> = {
@@ -15,14 +15,14 @@ const DELIVERY: Record<string, { sent: number; reach: number; ack: number }> = {
 }
 
 export default function LifecyclePage() {
-  const { alerts } = useStore()
+  const { alerts, regionId } = useStore()
 
   return (
     <main className="dashboard-shell">
       <div className="workspace">
         <div className="workspace-heading">
           <div>
-            <p className="eyebrow">{SIM_TIMESTAMP}</p>
+            <p className="eyebrow">{simTime(regionId)}</p>
             <h1>Alert lifecycle &amp; history</h1>
             <p className="heading-caption">
               Draft → pending → approved → dispatched → cancelled/all-clear · full audit trail on every alert
