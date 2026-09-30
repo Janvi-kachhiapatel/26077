@@ -32,7 +32,7 @@ export function Topbar() {
       <div className="brand-lockup">
         <div className="brand-mark"><span>V</span></div>
         <div>
-          <p className="brand-name">VAJRA<span>NOW</span></p>
+          <p className="brand-name">SKY<span>SENTINEL</span></p>
           <p className="brand-sub">SEVERE WEATHER INTELLIGENCE</p>
         </div>
       </div>

@@ -4,10 +4,10 @@ import { StoreProvider } from '@/lib/store'
 import { Sidebar, Topbar } from '@/components/chrome'
 
 export const metadata: Metadata = {
-  title: 'VajraNow | Probabilistic 0–6 h Hazard → Alert Platform',
+  title: 'SkySentinel | Probabilistic 0–6 h Hazard → Alert Platform',
   description:
     'SIH26077 prototype: probabilistic nowcast engine, impact-based CAP 1.2 alert chain with human approval, verification against baselines, data-health degradation, drill mode. Replay data only.',
-  generator: 'VajraNow prototype',
+  generator: 'SkySentinel prototype',
   icons: {
     icon: [
       { url: '/icon-light-32x32.png', media: '(prefers-color-scheme: light)' },

@@ -17,8 +17,7 @@ button { font: inherit; color: inherit; cursor: pointer; }
 @media (max-width: 720px) { .verification-row { grid-template-columns: 1fr repeat(3, 62px); font-size: 10px; }.verification-row > * { padding: 0 7px; }.verification-head { font-size: 8px; }.source-list { grid-template-columns: 1fr; }.evidence-card .section-heading { align-items: flex-start; gap: 10px; flex-wrap: wrap; }.evidence-foot { gap: 8px 14px; } }
 @media (prefers-reduced-motion: reduce) { *, *::before, *::after { scroll-behavior: auto !important; transition: none !important; animation: none !important; } }
 
-/* ═══════════════════════════════════════════════════════════════════════════
-   VAJRANOW MULTI-SCREEN SHELL + SHARED SCREEN PRIMITIVES
+/* ═══════════════════════════════════════════════════════════════════════════    SKYSENTINEL MULTI-SCREEN SHELL + SHARED SCREEN PRIMITIVES
    ═══════════════════════════════════════════════════════════════════════════ */
 body { display: block; }
 .mobile-menu-slot { display: none; }

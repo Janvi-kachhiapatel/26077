@@ -50,7 +50,7 @@ export default function ReplayPage() {
           </div>
           <div className="replay-grid">
             <div className="replay-col">
-              <p className="eyebrow"><Info size={12} /> What VajraNow would have said</p>
+              <p className="eyebrow"><Info size={12} /> What SkySentinel would have said</p>
               <p>{REPLAY_SCRIPT[tIdx].system}</p>
             </div>
             <div className="replay-col">

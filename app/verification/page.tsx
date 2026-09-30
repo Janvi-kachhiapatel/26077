@@ -32,17 +32,17 @@ export default function VerificationPage() {
 
         <section className="panel-card">
           <div className="section-heading">
-            <div><p className="eyebrow">Skill scores · lead {lead}</p><h2>VajraNow vs persistence vs optical flow</h2></div>
+            <div><p className="eyebrow">Skill scores · lead {lead}</p><h2>SkySentinel vs persistence vs optical flow</h2></div>
             <span className="latency-badge"><BarChart3 size={12} /> {verificationMeta.events}</span>
           </div>
           <div className="verification-table">
             <div className="verification-row verification-head">
-              <span>Metric</span><span>VajraNow</span><span>Persistence</span><span>Optical flow</span>
+              <span>Metric</span><span>SkySentinel</span><span>Persistence</span><span>Optical flow</span>
             </div>
             {rows.map((row) => (
               <div className="verification-row" key={row.metric}>
                 <strong>{row.metric}{row.betterWhenLower ? ' ↓' : ''}</strong>
-                <span className="model-score">{row.vajra.toFixed(2)}</span>
+                <span className="model-score">{row.sky.toFixed(2)}</span>
                 <span>{row.persistence.toFixed(2)}</span>
                 <span>{row.optical.toFixed(2)}</span>
               </div>

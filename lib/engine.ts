@@ -11,7 +11,7 @@ import type {
 // Engine configuration
 // ─────────────────────────────────────────────────────────────────────────────
 
-export const BACKTEST_VERSION = 'vajra-engine v0.9.2 · backtest 2026-09-12'
+export const BACKTEST_VERSION = 'skysentinel-engine v0.9.2 · backtest 2026-09-12'
 
 /**
  * Per-region simulated wall-clock. Each region replays its own event, so the
@@ -216,22 +216,22 @@ export function recommendedAction(regionId: RegionId, catchmentId: string): stri
 
 export const skillByLead: Record<'0-2h' | '2-4h' | '4-6h', SkillRow[]> = {
   '0-2h': [
-    { metric: 'CSI', vajra: 0.58, persistence: 0.41, optical: 0.47 },
-    { metric: 'POD', vajra: 0.71, persistence: 0.58, optical: 0.63 },
-    { metric: 'FAR', vajra: 0.24, persistence: 0.39, optical: 0.31, betterWhenLower: true },
-    { metric: 'Brier', vajra: 0.11, persistence: 0.19, optical: 0.15, betterWhenLower: true },
+    { metric: 'CSI', sky: 0.58, persistence: 0.41, optical: 0.47 },
+    { metric: 'POD', sky: 0.71, persistence: 0.58, optical: 0.63 },
+    { metric: 'FAR', sky: 0.24, persistence: 0.39, optical: 0.31, betterWhenLower: true },
+    { metric: 'Brier', sky: 0.11, persistence: 0.19, optical: 0.15, betterWhenLower: true },
   ],
   '2-4h': [
-    { metric: 'CSI', vajra: 0.49, persistence: 0.36, optical: 0.41 },
-    { metric: 'POD', vajra: 0.64, persistence: 0.51, optical: 0.56 },
-    { metric: 'FAR', vajra: 0.31, persistence: 0.44, optical: 0.38, betterWhenLower: true },
-    { metric: 'Brier', vajra: 0.14, persistence: 0.22, optical: 0.18, betterWhenLower: true },
+    { metric: 'CSI', sky: 0.49, persistence: 0.36, optical: 0.41 },
+    { metric: 'POD', sky: 0.64, persistence: 0.51, optical: 0.56 },
+    { metric: 'FAR', sky: 0.31, persistence: 0.44, optical: 0.38, betterWhenLower: true },
+    { metric: 'Brier', sky: 0.14, persistence: 0.22, optical: 0.18, betterWhenLower: true },
   ],
   '4-6h': [
-    { metric: 'CSI', vajra: 0.37, persistence: 0.3, optical: 0.33 },
-    { metric: 'POD', vajra: 0.52, persistence: 0.46, optical: 0.48 },
-    { metric: 'FAR', vajra: 0.42, persistence: 0.51, optical: 0.46, betterWhenLower: true },
-    { metric: 'Brier', vajra: 0.19, persistence: 0.26, optical: 0.22, betterWhenLower: true },
+    { metric: 'CSI', sky: 0.37, persistence: 0.3, optical: 0.33 },
+    { metric: 'POD', sky: 0.52, persistence: 0.46, optical: 0.48 },
+    { metric: 'FAR', sky: 0.42, persistence: 0.51, optical: 0.46, betterWhenLower: true },
+    { metric: 'Brier', sky: 0.19, persistence: 0.26, optical: 0.22, betterWhenLower: true },
   ],
 }
 

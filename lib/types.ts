@@ -1,4 +1,4 @@
-// VajraNow — shared types.
+// SkySentinel — shared types.
 // Everything on screen is either computed here or explicitly labelled ILLUSTRATIVE.
 
 export type HazardId = 'storm' | 'rain' | 'flood'
@@ -63,7 +63,7 @@ export interface Signal {
 
 export interface SkillRow {
   metric: 'CSI' | 'POD' | 'FAR' | 'Brier'
-  vajra: number
+  sky: number
   persistence: number
   optical: number
   betterWhenLower?: boolean

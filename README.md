@@ -1,4 +1,4 @@
-# VajraNow — SIH26077 prototype
+# SkySentinel — SIH26077 prototype
 
 **A probabilistic 0–6 h hazard → alert platform.** One sentence: turn satellite / radar / model data into calibrated micro-catchment risk, convert risk into impact- and cost-aware alert drafts, and dispatch human-approved CAP 1.2 alerts — while showing the system's own skill and data health.
 
@@ -72,7 +72,7 @@ pnpm build        # production build
 Or use the deploy button:
 
 ```md
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2FJanvi-kachhiapatel%2Fvajranow-prototype-development077)
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2FJanvi-kachhiapatel%2F26077)
 ```
 
 ## Demo script for judges (3 minutes)
